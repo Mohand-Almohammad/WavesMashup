@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link th:href="@{/styles/stylesheet.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>WAVES</title>
+</head>
+<body>
+<h1>Waves</h1>
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">totalSupply</th>
+        <th scope="col">precision</th>
+        <th scope="col">trades</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="waves: ${waves}">
+        <td th:text="${waves.totalSupply}" />
+        <td th:text="${waves.precision}" />
+        <td th:text="${waves.trades}" />
+    </tr>
+    </tbody>
+</table>
+<h1>Waves current Prices:</h1>
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Currency</th>
+        <th scope="col">Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">USD</th>
+        <td th:text="${pricesList.lastPrice_usd_n}"/>
+    </tr>
+    <tr>
+        <th scope="row">EUR</th>
+        <td th:text="${pricesList.lastPrice_eurn}"/>
+    </tr>
+    <tr>
+        <th scope="row">BTC</th>
+        <td th:text="${pricesList.lastPrice_btc}"/>
+    </tr>
+    <tr>
+        <th scope="row">ETH</th>
+        <td th:text="${pricesList.lastPrice_eth}"/>
+    </tr>
+    <tr>
+        <th scope="row">TRYN</th>
+        <td th:text="${pricesList.lastPrice_tryn}"/>
+    </tr>
+    <tr>
+        <th scope="row">BRLN</th>
+        <td th:text="${pricesList.lastPrice_brln}"/>
+    </tr>
+    <tr>
+        <th scope="row">GBPN</th>
+        <td th:text="${pricesList.lastPrice_gbpn}"/>
+    </tr>
+    <tr>
+        <th scope="row">NGNN</th>
+        <td th:text="${pricesList.lastPrice_ngnn}"/>
+    </tr>
+    <tr>
+        <th scope="row">UAHN</th>
+        <td th:text="${pricesList.lastPrice_uahn}"/>
+    </tr>
+    <tr>
+        <th scope="row">JPYN</th>
+        <td th:text="${pricesList.lastPrice_jpyn}"/>
+    </tr>
+    <tr>
+        <th scope="row">CNYN</th>
+        <td th:text="${pricesList.lastPrice_cnyn}"/>
+    </tr>
+    <tr>
+        <th scope="row">RUBN</th>
+        <td th:text="${pricesList.lastPrice_rubn}"/>
+    </tr>
+
+    </tbody>
+</table>
+<hr>
+<h1>Tweets & Sentimentanalyse @waves.tech: </h1>
+<div th:text="${sentimentsWavesTech}"/>
+<hr>
+<h1>Tweets & Sentimentanalyse @wavesprotocol: </h1>
+<div th:text="${sentimentsWavesProtocol}"/>
+<hr>
+<div th:text="${wavesHistoricalPrices}"/>
+<hr>
+</body>
+</html>
